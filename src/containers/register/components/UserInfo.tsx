@@ -7,9 +7,7 @@ import {
 } from "~/components/ui/radio-group";
 
 import { TextField, TextFieldInput, TextFieldLabel } from "~/components/ui/text-field";
-// import DatePicker from "~/components/user-defined/DatePicker";
 
-import parsePhoneNumber, { formatNumber } from "libphonenumber-js";
 import { formatPhoneNumber } from "~/lib/formatter";
 
 const DatePicker = clientOnly(() => import("~/components/user-defined/DatePicker"));
@@ -76,6 +74,7 @@ const UserInfo = () => {
         </div>
         <TextField
           onChange={(value) => {
+            setPhoneNumber("");
             setPhoneNumber(formatPhoneNumber(value));
           }}
           value={phoneNumber()}
