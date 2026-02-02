@@ -1,11 +1,13 @@
-import { createMemo, createSignal, onMount, JSX } from "solid-js";
+import { createWindowSize } from "@solid-primitives/resize-observer";
+import { createMemo, createSignal, onMount, JSX, createEffect } from "solid-js";
+
 import { cn } from "~/lib/utils";
 
 export const Exclusive = () => {
   let firstDiv: HTMLDivElement | undefined;
 
-  const [extraHeight, setExtraHeight] = createSignal(200);
   const [offset, setOffset] = createSignal(-40);
+  const [extraHeight, setExtraHeight] = createSignal(200);
 
   const expansion = 32;
 
@@ -33,6 +35,20 @@ export const Exclusive = () => {
   ];
 
   onMount(() => {
+    if (firstDiv == undefined) return;
+
+    const height = firstDiv.getBoundingClientRect().width;
+
+    const originalWidth = (height * 100) / (100 + expansion);
+
+    setExtraHeight(height * 0.65);
+    setOffset((originalWidth * (expansion / 2)) / 100);
+  });
+
+  const size = createWindowSize();
+
+  createEffect(() => {
+    size.width;
     if (firstDiv == undefined) return;
 
     const height = firstDiv.getBoundingClientRect().width;

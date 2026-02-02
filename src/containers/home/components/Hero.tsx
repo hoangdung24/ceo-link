@@ -83,7 +83,8 @@ export const Hero = () => {
                       src={item().banner}
                       alt={item().title}
                     />
-                    <div class="absolute left-12 top-1/2 -translate-y-1/2">
+                    <div class="absolute inset-0 bg-black opacity-50" />
+                    <div class="absolute left-12 top-1/2 -translate-y-1/2 select-none">
                       <div class="flex max-w-[75%] flex-col gap-6 text-white">
                         <p class="text-3xl font-semibold">{item().title}</p>
                         <p>{item().description}</p>

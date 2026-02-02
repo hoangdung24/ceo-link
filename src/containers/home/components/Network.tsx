@@ -97,7 +97,7 @@ const Network = () => {
                     <div class="absolute right-0 top-0">
                       <div class="flex gap-4">
                         <BadgeCheck class="text-yellow-400" size={40} />
-                        <img src="/images/logo-2.jpg" class="w-20" alt="Member Image" />
+                        <img src="/images/logo-2.png" class="w-10" alt="Member Image" />
                       </div>
                     </div>
                   </div>

@@ -24,18 +24,23 @@ const opts: CarouselProps["opts"] = {
 };
 
 const items = [
-  "/images/logo-1.jpg",
-  "/images/logo-2.jpg",
-  "/images/logo-3.jpg",
-  "/images/logo-4.jpg",
-  "/images/logo-5.jpg",
-  "/images/logo-6.jpg",
-  "/images/logo-7.jpg",
-  "/images/logo-8.jpg",
+  "/images/logo-1.png",
+  "/images/logo-2.png",
+  "/images/logo-3.png",
+  "/images/logo-4.png",
+  "/images/logo-5.png",
+  "/images/logo-6.png",
+  "/images/logo-7.png",
+  "/images/logo-8.png",
 ];
 
 const InfrastructurePartner = () => {
   const [api, setApi] = createSignal<ReturnType<CarouselApi>>();
+
+  const opts: CarouselProps["opts"] = {
+    align: "start",
+    loop: true,
+  };
 
   const plugins: CarouselProps["plugins"] = [
     AutoScroll({
@@ -63,7 +68,7 @@ const InfrastructurePartner = () => {
   });
 
   return (
-    <section id="hero" class="flex flex-col gap-4">
+    <section class="flex flex-col gap-4">
       <h3 class="text-lg font-bold">Hạ tầng Hàng không & Di chuyển</h3>
       <Carousel setApi={setApi} opts={opts} plugins={plugins} class="w-full">
         <CarouselContent>
@@ -71,11 +76,13 @@ const InfrastructurePartner = () => {
             {(item, index) => {
               return (
                 <CarouselItem class="max-w-60">
-                  <img
-                    class="aspect-video grayscale duration-300 hover:grayscale-0"
-                    src={item()}
-                    alt={`Logo ${index + 1}`}
-                  />
+                  <div class="flex justify-center">
+                    <img
+                      class="aspect-square object-contain grayscale duration-300 hover:grayscale-0"
+                      src={item()}
+                      alt={`Logo ${index + 1}`}
+                    />
+                  </div>
                 </CarouselItem>
               );
             }}
@@ -113,7 +120,7 @@ const HealthcarePartner = () => {
   });
 
   return (
-    <section id="hero" class="flex flex-col gap-4">
+    <section class="flex flex-col gap-4">
       <h3 class="text-lg font-bold">Hệ thống Y tế & Chăm sóc sức khỏe</h3>
       <Carousel setApi={setApi} opts={opts} plugins={plugins} class="w-full">
         <CarouselContent>
@@ -121,11 +128,13 @@ const HealthcarePartner = () => {
             {(item, index) => {
               return (
                 <CarouselItem class="max-w-60">
-                  <img
-                    class="aspect-video grayscale duration-300 hover:grayscale-0"
-                    src={item()}
-                    alt={`Logo ${index + 1}`}
-                  />
+                  <div class="flex justify-center">
+                    <img
+                      class="aspect-square object-contain grayscale duration-300 hover:grayscale-0"
+                      src={item()}
+                      alt={`Logo ${index + 1}`}
+                    />
+                  </div>
                 </CarouselItem>
               );
             }}
@@ -146,6 +155,7 @@ const AssociatedPartner = () => {
       stopOnInteraction: true,
     }),
   ];
+
   createEffect(() => {
     if (!api()) {
       return;
@@ -163,7 +173,7 @@ const AssociatedPartner = () => {
   });
 
   return (
-    <section id="hero" class="flex flex-col gap-4">
+    <section class="flex flex-col gap-4">
       <h3 class="text-lg font-bold">Các Hiệp hội & Tổ chức thương mại</h3>
       <Carousel setApi={setApi} opts={opts} plugins={plugins} class="w-full">
         <CarouselContent>
@@ -171,11 +181,13 @@ const AssociatedPartner = () => {
             {(item, index) => {
               return (
                 <CarouselItem class="max-w-60">
-                  <img
-                    class="aspect-video grayscale duration-300 hover:grayscale-0"
-                    src={item()}
-                    alt={`Logo ${index + 1}`}
-                  />
+                  <div class="flex justify-center">
+                    <img
+                      class="aspect-square object-contain grayscale duration-300 hover:grayscale-0"
+                      src={item()}
+                      alt={`Logo ${index + 1}`}
+                    />
+                  </div>
                 </CarouselItem>
               );
             }}

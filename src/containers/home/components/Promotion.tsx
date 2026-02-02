@@ -37,7 +37,7 @@ const Promotion = () => {
   };
 
   const plugins: CarouselProps["plugins"] = [
-    // Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true }),
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true }),
   ];
 
   createEffect(() => {
@@ -45,11 +45,11 @@ const Promotion = () => {
       return;
     }
 
-    // api()!
-    //   .containerNode()
-    //   .addEventListener("mouseleave", () => {
-    //     api()?.plugins().autoplay!.play();
-    //   });
+    api()!
+      .containerNode()
+      .addEventListener("mouseleave", () => {
+        api()?.plugins().autoplay!.play();
+      });
   });
 
   return (
@@ -65,8 +65,8 @@ const Promotion = () => {
                     alt={el.title}
                     class="absolute left-0 top-0 h-full w-full object-cover"
                   />
-                  <div class="absolute left-0 top-0 h-full w-full bg-black/25" />
-                  <div class="z-10 flex flex-col gap-4">
+                  <div class="absolute left-0 top-0 h-full w-full bg-black/50" />
+                  <div class="z-10 flex select-none flex-col gap-4">
                     <h3 class="text-2xl font-bold">{el.title}</h3>
                     <p>{el.description}</p>
                     <div
