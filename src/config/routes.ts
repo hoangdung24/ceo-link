@@ -8,12 +8,24 @@ export const routes = {
     href: "/ve-chung-toi",
   },
   member: {
-    label: "Thành viên",
-    href: "/thanh-vien",
+    label: "Hội viên",
+    href: "/hoi-vien",
+  },
+  honorCouncil: {
+    label: "Hội đồng danh dự",
+    href: "/hoi-dong-danh-du",
   },
   service: {
     label: "Dịch vụ",
     href: "/dich-vu",
+  },
+  serviceAndConnection: {
+    label: "Dịch vụ & Kết nối",
+    href: "/dich-vu-va-ket-noi",
+  },
+  exclusive: {
+    label: "Đặc quyền hội viên",
+    href: "/dac-quyen",
   },
   connection: {
     label: "Kết nối",
@@ -26,5 +38,9 @@ export const routes = {
   register: {
     label: "Đăng ký",
     href: "/dang-ky",
+  },
+  dashboard: {
+    label: "Tổng quan",
+    href: "/tong-quan",
   },
 };

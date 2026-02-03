@@ -12,6 +12,7 @@ import { Router, RouteSectionProps } from "@solidjs/router";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import MetaProvider from "~/providers/MetaProvider";
+import Support from "./components/Support";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ const RootComponent = (props: RouteSectionProps<unknown>) => {
           <Suspense>{props.children}</Suspense>
         </div>
         <Footer />
+        <Support />
       </div>
     </MetaProvider>
   );

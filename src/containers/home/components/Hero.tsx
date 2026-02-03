@@ -11,6 +11,7 @@ import {
   CarouselProps,
   CarouselContent,
 } from "~/components/ui/carousel";
+import { routes } from "~/config/routes";
 
 export const Hero = () => {
   const opts: CarouselProps["opts"] = {
@@ -70,8 +71,32 @@ export const Hero = () => {
   });
 
   return (
-    <section id="hero">
-      <Carousel setApi={setApi} opts={opts} plugins={plugins} class="w-full">
+    <section id="hero" class="grid grid-cols-2">
+      <div class="flex flex-col justify-center gap-4 p-8">
+        <h3 class="text-4xl font-semibold">YOUR NETWORK, YOUR SUCCESS</h3>
+        <p class="text-lg">
+          CEO Link là nền tảng kết nối, xúc tiến và hợp tác chuyên sâu dành cho lãnh đạo
+          doanh nghiệp, giúp kết nối đúng người, đúng nhu cầu và đúng thời điểm ngay trong
+          một hệ sinh thái kinh doanh riêng tư
+        </p>
+        <Button class="self-start">
+          <A href={routes.exclusive.href}>Khám phá đặc quyền</A>
+        </Button>
+      </div>
+      <Carousel setApi={setApi} opts={opts} plugins={plugins}>
+        <CarouselContent>
+          <Index each={items}>
+            {(item, _) => {
+              return (
+                <CarouselItem>
+                  <img class="aspect-video" src={item().banner} alt={item().title} />
+                </CarouselItem>
+              );
+            }}
+          </Index>
+        </CarouselContent>
+      </Carousel>
+      {/* <Carousel setApi={setApi} opts={opts} plugins={plugins} class="w-full">
         <CarouselContent>
           <Index each={items}>
             {(item, _) => {
@@ -99,7 +124,7 @@ export const Hero = () => {
             }}
           </Index>
         </CarouselContent>
-      </Carousel>
+      </Carousel> */}
     </section>
   );
 };

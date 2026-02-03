@@ -24,14 +24,14 @@ const opts: CarouselProps["opts"] = {
 };
 
 const items = [
-  "/images/logo-1.png",
-  "/images/logo-2.png",
-  "/images/logo-3.png",
-  "/images/logo-4.png",
-  "/images/logo-5.png",
-  "/images/logo-6.png",
-  "/images/logo-7.png",
-  "/images/logo-8.png",
+  "/images/logo/logo-1.jpg",
+  "/images/logo/logo-2.png",
+  "/images/logo/logo-3.png",
+  "/images/logo/logo-4.png",
+  "/images/logo/logo-5.png",
+  "/images/logo/logo-6.png",
+  "/images/logo/logo-7.png",
+  "/images/logo/logo-8.png",
 ];
 
 const InfrastructurePartner = () => {
@@ -78,7 +78,7 @@ const InfrastructurePartner = () => {
                 <CarouselItem class="max-w-60">
                   <div class="flex justify-center">
                     <img
-                      class="aspect-square object-contain grayscale duration-300 hover:grayscale-0"
+                      class="aspect-square w-36 object-contain grayscale duration-300 hover:grayscale-0"
                       src={item()}
                       alt={`Logo ${index + 1}`}
                     />
@@ -130,7 +130,7 @@ const HealthcarePartner = () => {
                 <CarouselItem class="max-w-60">
                   <div class="flex justify-center">
                     <img
-                      class="aspect-square object-contain grayscale duration-300 hover:grayscale-0"
+                      class="aspect-square w-36 object-contain grayscale duration-300 hover:grayscale-0"
                       src={item()}
                       alt={`Logo ${index + 1}`}
                     />
@@ -183,7 +183,7 @@ const AssociatedPartner = () => {
                 <CarouselItem class="max-w-60">
                   <div class="flex justify-center">
                     <img
-                      class="aspect-square object-contain grayscale duration-300 hover:grayscale-0"
+                      class="aspect-square w-36 object-contain grayscale duration-300 hover:grayscale-0"
                       src={item()}
                       alt={`Logo ${index + 1}`}
                     />

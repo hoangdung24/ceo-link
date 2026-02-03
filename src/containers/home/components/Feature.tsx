@@ -39,14 +39,16 @@ export const Feature = () => {
       <div class="grid w-[80%] grid-cols-3 place-content-center gap-8 self-center">
         {features.map((el) => {
           return (
-            <div class="flex w-60 flex-col items-center justify-center gap-4">
-              <div
-                class="flex h-20 w-full items-center justify-center bg-primary text-lg font-bold uppercase text-white"
-                style={style}
-              >
-                {el.title}
+            <div class="mx-auto">
+              <div class="flex w-60 flex-col items-center justify-center gap-4">
+                <div
+                  class="flex h-32 w-full items-center justify-center bg-primary text-lg font-bold uppercase text-white"
+                  style={style}
+                >
+                  {el.title}
+                </div>
+                <p class="text-center">{el.description}</p>
               </div>
-              <p class="text-center">{el.description}</p>
             </div>
           );
         })}

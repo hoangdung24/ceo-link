@@ -1,6 +1,7 @@
 import { clientOnly } from "@solidjs/start";
 import Autoplay from "embla-carousel-autoplay";
 import { createEffect, createSignal } from "solid-js";
+import { createElementSize } from "@solid-primitives/resize-observer";
 
 import {
   Carousel,
@@ -14,6 +15,15 @@ import { Button } from "~/components/ui/button";
 const BadgeCheck = clientOnly(() => import("lucide-solid/icons/badge-check"));
 
 const Network = () => {
+  let [targetEl, setTargetEl] = createSignal<HTMLDivElement>();
+  const size = createElementSize(targetEl);
+
+  createEffect(() => {
+    setItemWidth((size.width ?? 0) / 2);
+  });
+
+  const [itemWidth, setItemWidth] = createSignal(-1);
+
   const [api, setApi] = createSignal<ReturnType<CarouselApi>>();
 
   const opts: CarouselProps["opts"] = {
@@ -44,6 +54,24 @@ const Network = () => {
       desire:
         "Tìm kiếm đối tác cung ứng nội địa đạt chuẩn ISO và nhà thầu hạ tầng công nghiệp tại Việt Nam.",
     },
+    {
+      userName: "Nguyễn Văn C",
+      position: "CEO",
+      company: "Công ty ABC",
+      field: "FMCG",
+      capacity: "Chuỗi nhà máy quy mô 50ha, cung ứng toàn cầu.",
+      desire:
+        "Tìm kiếm đối tác cung ứng nội địa đạt chuẩn ISO và nhà thầu hạ tầng công nghiệp tại Việt Nam.",
+    },
+    {
+      userName: "Nguyễn Văn D",
+      position: "CEO",
+      company: "Công ty ABC",
+      field: "FMCG",
+      capacity: "Chuỗi nhà máy quy mô 50ha, cung ứng toàn cầu.",
+      desire:
+        "Tìm kiếm đối tác cung ứng nội địa đạt chuẩn ISO và nhà thầu hạ tầng công nghiệp tại Việt Nam.",
+    },
   ];
 
   createEffect(() => {
@@ -59,7 +87,7 @@ const Network = () => {
   });
 
   return (
-    <div id="network" class="flex flex-col gap-8">
+    <div ref={setTargetEl} id="network" class="flex flex-col gap-8">
       <div class="flex max-w-[80%] flex-col gap-2 self-center">
         <h3 class="text-center text-2xl font-bold">
           Khám phá cơ hội trong mạng lưới 10.000+ lãnh đạo xác thực
@@ -72,7 +100,7 @@ const Network = () => {
         <CarouselContent>
           {members.map((el) => {
             return (
-              <CarouselItem>
+              <CarouselItem style={{ "max-width": `${itemWidth()}px` }}>
                 <div class="border-2 border-primary p-8">
                   <div class="relative flex flex-col gap-4">
                     <h6 class="font-bold">Thành viên: {el.userName}</h6>
@@ -90,7 +118,7 @@ const Network = () => {
                         <span class="font-bold">Nhu cầu:</span> {el.desire}
                       </li>
                     </ul>
-                    <div class="flex gap-2 self-end">
+                    <div class="grid grid-cols-2 gap-2">
                       <Button class="bg-primary/75">Mở hồ sơ năng lực</Button>
                       <Button class="bg-primary/75">Đặt lịch gặp 1:1</Button>
                     </div>
