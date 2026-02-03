@@ -25,7 +25,7 @@ export const routes = {
   },
   exclusive: {
     label: "Đặc quyền hội viên",
-    href: "/dac-quyen",
+    href: "/dac-quyen-hoi-vien",
   },
   connection: {
     label: "Kết nối",
