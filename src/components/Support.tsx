@@ -1,13 +1,37 @@
+import { createEffect, createMemo } from "solid-js";
 import { clientOnly } from "@solidjs/start";
+import { createScrollPosition } from "@solid-primitives/scroll";
 
 import { Button } from "./ui/button";
+import { cn } from "~/lib/utils";
 
 const Headset = clientOnly(() => import("lucide-solid/icons/headset"));
+const ArrowUp = clientOnly(() => import("lucide-solid/icons/arrow-up"));
 
 const Support = () => {
+  const windowScroll = createScrollPosition();
+
+  const animatedStyle = createMemo(() => {
+    if (windowScroll.y > 1000) {
+      return "opacity-100";
+    }
+    return "opacity-0 pointer-events-none";
+  });
+
+  const goToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div id="support" class="fixed bottom-8 right-0 mix-blend-difference">
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-col-reverse gap-2">
+        <Button
+          onClick={goToTop}
+          size="icon"
+          class={cn("size-12 transition", animatedStyle())}
+        >
+          <ArrowUp class="!size-6" />
+        </Button>
         <Button size="icon" class="size-12">
           <Zalo />
         </Button>

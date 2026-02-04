@@ -1,3 +1,9 @@
+import { clientOnly } from "@solidjs/start";
+import { Button } from "~/components/ui/button";
+
+const CircleX = clientOnly(() => import("lucide-solid/icons/circle-x"));
+const CircleCheck = clientOnly(() => import("lucide-solid/icons/circle-check"));
+
 const Exclusive = () => {
   const features = [
     {
@@ -23,7 +29,7 @@ const Exclusive = () => {
   ];
 
   return (
-    <div id="exclusive" class="container flex flex-col gap-8 py-8">
+    <div id="exclusive" class="container flex flex-col gap-12 py-12">
       <div class="mx-auto flex max-w-[70%] flex-col items-center gap-2">
         <h3 class="text-2xl font-bold">Vị thế của bạn, lựa chọn của bạn</h3>
         <p class="text-center">
@@ -51,9 +57,9 @@ const Exclusive = () => {
 
       <FeatureList />
 
-      <div>
-        <h3>Quyết định hôm nay, vị thế mai sau</h3>
-        <p>
+      <div class="mx-auto flex max-w-[70%] flex-col items-center gap-2">
+        <h3 class="text-2xl font-bold">Quyết định hôm nay, vị thế mai sau</h3>
+        <p class="text-center">
           CEO Link được xây dựng để trở thành "điểm tựa" vững chắc, giúp nhà lãnh đạo mua
           lại thời gian và mở khóa những cánh cửa giao thương tiềm năng nhất. Dành 2 phút
           để lựa chọn lộ trình phù hợp và bắt đầu trải nghiệm hệ sinh thái kinh doanh
@@ -104,7 +110,7 @@ const FeatureList = () => {
       title: "Hiển thị ưu tiên",
       tiers: [
         {
-          label: "Không có",
+          label: "",
           isIncluded: false,
         },
         {
@@ -216,9 +222,7 @@ const FeatureList = () => {
         </p>
       </div>
       <div class="grid grid-cols-4 border border-primary">
-        <div class="flex items-center justify-center bg-primary p-8 font-bold text-white">
-          Danh mục so sánh
-        </div>
+        <div class="bg-primary p-8 font-bold text-white">Danh mục so sánh</div>
         <div class="flex items-center justify-center border-l bg-primary p-8 font-bold text-white">
           Thành viên (FREE)
         </div>
@@ -231,19 +235,33 @@ const FeatureList = () => {
         {features.map((el, idx) => {
           return (
             <>
-              <div class="flex items-center justify-center border-t border-primary p-8 font-semibold">
-                {el.title}
-              </div>
-              {el.tiers.map((tier) => {
+              <div class="border-t border-primary p-8 font-semibold">{el.title}</div>
+              {el.tiers.map((tier, idx, arr) => {
                 return (
-                  <div class="flex items-center justify-center border-l border-t border-primary p-8">
-                    {tier.isIncluded ? "✓ " + tier.label : "—"}
+                  <div class="flex flex-col items-center justify-center gap-1 border-l border-t border-primary p-8">
+                    {tier.isIncluded ? (
+                      <CircleCheck size={48} class="fill-green-500 stroke-white" />
+                    ) : (
+                      <CircleX size={48} class="fill-red-500 stroke-white" />
+                    )}
+                    <span class={idx === arr.length - 1 ? "font-bold" : undefined}>
+                      {tier.label}
+                    </span>
                   </div>
                 );
               })}
             </>
           );
         })}
+      </div>
+
+      <div class="grid grid-cols-4">
+        <div class="col-start-3 col-end-4 px-1">
+          <Button class="w-full bg-primary/75">Trở thành hội viên Gold</Button>
+        </div>
+        <div class="col-start-4 col-end-5 px-1">
+          <Button class="w-full">Trở thành hội viên Platinum</Button>
+        </div>
       </div>
     </div>
   );
