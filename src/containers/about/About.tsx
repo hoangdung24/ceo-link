@@ -251,14 +251,18 @@ const BoardOfAdvisors = () => {
 
 const Supplier = () => {
   const items = [
-    "/images/logo/logo-1.jpg",
-    "/images/logo/logo-2.png",
-    "/images/logo/logo-3.png",
-    "/images/logo/logo-4.png",
-    "/images/logo/logo-5.png",
-    "/images/logo/logo-6.png",
-    "/images/logo/logo-7.png",
-    "/images/logo/logo-8.png",
+    "/images/partners/partner-1.png",
+    "/images/partners/partner-2.png",
+    "/images/partners/partner-3.png",
+    "/images/partners/partner-4.png",
+    "/images/partners/partner-5.png",
+    "/images/partners/partner-6.png",
+    "/images/partners/partner-7.png",
+    "/images/partners/partner-8.png",
+    "/images/partners/partner-9.jpg",
+    "/images/partners/partner-10.png",
+    "/images/partners/partner-11.png",
+    "/images/partners/partner-12.png",
   ];
 
   return (

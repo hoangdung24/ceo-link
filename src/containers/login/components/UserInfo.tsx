@@ -1,5 +1,5 @@
 import { clientOnly } from "@solidjs/start";
-import { children, ComponentProps, createSignal, For, Suspense } from "solid-js";
+import { children, ComponentProps, createSignal, For } from "solid-js";
 import { Button } from "~/components/ui/button";
 import {
   RadioGroup,

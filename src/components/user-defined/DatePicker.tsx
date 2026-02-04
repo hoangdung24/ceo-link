@@ -9,7 +9,6 @@ import {
   DatePickerNextTrigger,
   DatePickerPositioner,
   DatePickerPrevTrigger,
-  DatePickerRangeText,
   DatePickerTable,
   DatePickerTableBody,
   DatePickerTableCell,
@@ -24,7 +23,7 @@ import {
 } from "~/components/ui/date-picker";
 
 import { format } from "date-fns";
-import { DatePickerRootProps, useDatePickerContext } from "@ark-ui/solid";
+import { DatePickerRootProps, useDatePickerContext, parseDate } from "@ark-ui/solid";
 
 const weekdayLabelObj: Record<string, string> = {
   Monday: "T2",
@@ -221,3 +220,5 @@ const CustomDatePickerText = () => {
 };
 
 export default DatePicker;
+
+export { parseDate };
