@@ -5,7 +5,7 @@ import Register from "./components/Register";
 
 const Login = () => {
   return (
-    <section id="login" class="container flex flex-col items-center gap-8 py-8">
+    <main id="login" class="container flex flex-col items-center gap-12 py-12">
       <Tabs defaultValue="login" class="w-full max-w-lg">
         <TabsList class="grid w-full grid-cols-2">
           <TabsTrigger value="login">Đăng nhập</TabsTrigger>
@@ -18,7 +18,7 @@ const Login = () => {
           <Register />
         </TabsContent>
       </Tabs>
-    </section>
+    </main>
   );
 };
 

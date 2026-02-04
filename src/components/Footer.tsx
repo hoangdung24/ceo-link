@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer class="bg-primary py-8 text-white">
       <div class="container flex flex-col gap-4">
-        <img src="/images/logo-footer.jpg" class="w-60" />
+        <img src="/images/logo-footer.png" class="w-60" />
         <div class="grid grid-cols-3 gap-16">
           <div class="flex flex-col gap-8">
             <div class="flex flex-col gap-4">

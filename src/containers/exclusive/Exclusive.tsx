@@ -29,7 +29,7 @@ const Exclusive = () => {
   ];
 
   return (
-    <div id="exclusive" class="container flex flex-col gap-12 py-12">
+    <main id="exclusive" class="container flex flex-col gap-12 py-12">
       <div class="mx-auto flex max-w-[70%] flex-col items-center gap-2">
         <h3 class="text-2xl font-bold">Vị thế của bạn, lựa chọn của bạn</h3>
         <p class="text-center">
@@ -66,7 +66,7 @@ const Exclusive = () => {
           riêng tư của chúng tôi.
         </p>
       </div>
-    </div>
+    </main>
   );
 };
 

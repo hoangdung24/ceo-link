@@ -10,7 +10,7 @@ import { Promotion } from "./components/Promotion";
 
 const Home = () => {
   return (
-    <div class="container flex flex-col gap-12 py-8">
+    <main id="home" class="container flex flex-col gap-12 py-8">
       <Hero />
       <Feature />
       <Identity />
@@ -20,7 +20,7 @@ const Home = () => {
       <Quote />
       <Network />
       <Promotion />
-    </div>
+    </main>
   );
 };
 
