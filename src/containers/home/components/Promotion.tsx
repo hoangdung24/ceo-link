@@ -8,6 +8,7 @@ import {
 import { Button } from "~/components/ui/button";
 import { createEffect, createSignal } from "solid-js";
 import Autoplay from "embla-carousel-autoplay";
+import { A } from "@solidjs/router";
 
 const Promotion = () => {
   const promotions = [
@@ -15,16 +16,16 @@ const Promotion = () => {
       title: " Bạn đang là Thành viên? Khám phá đặc quyền Gold & Platinum",
       description:
         "Lựa chọn hạng thẻ phù hợp để mở khóa toàn bộ khả năng tiếp cận mạng lưới doanh nghiệp và hưởng các đặc quyền ưu tiên dành riêng cho bạn.",
-      leftHref: "/",
-      rightHref: "/",
+      leftHref: "/dang-ky-hoi-vien",
+      rightHref: "/dang-ky-hoi-vien",
       banner: "/images/banner-1.jpg",
     },
     {
       title: " Bạn đang là Thành viên? Khám phá đặc quyền Gold & Platinum",
       description:
         "Lựa chọn hạng thẻ phù hợp để mở khóa toàn bộ khả năng tiếp cận mạng lưới doanh nghiệp và hưởng các đặc quyền ưu tiên dành riêng cho bạn.",
-      leftHref: "/",
-      rightHref: "/",
+      leftHref: "/dang-ky-hoi-vien",
+      rightHref: "/dang-ky-hoi-vien",
       banner: "/images/banner-2.jpg",
     },
   ];
@@ -73,8 +74,12 @@ const Promotion = () => {
                       style="--primary: 0 0% 98%; --primary-foreground: 240 5.9% 10%;"
                       class="flex gap-2"
                     >
-                      <Button>Nâng cấp đặc quyền</Button>
-                      <Button>Khám phá các gói dịch vụ</Button>
+                      <Button>
+                        <A href={el.leftHref}>Nâng cấp đặc quyền</A>
+                      </Button>
+                      <Button>
+                        <A href={el.rightHref}>Khám phá các gói dịch vụ</A>
+                      </Button>
                     </div>
                   </div>
                 </div>

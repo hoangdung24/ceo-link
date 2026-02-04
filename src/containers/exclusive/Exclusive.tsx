@@ -1,5 +1,7 @@
+import { A } from "@solidjs/router";
 import { clientOnly } from "@solidjs/start";
 import { Button } from "~/components/ui/button";
+import { routes } from "~/config/routes";
 
 const CircleX = clientOnly(() => import("lucide-solid/icons/circle-x"));
 const CircleCheck = clientOnly(() => import("lucide-solid/icons/circle-check"));
@@ -257,10 +259,14 @@ const FeatureList = () => {
 
       <div class="grid grid-cols-4">
         <div class="col-start-3 col-end-4 px-1">
-          <Button class="w-full bg-primary/75">Trở thành hội viên Gold</Button>
+          <Button class="w-full bg-primary/75">
+            <A href={routes.registerMember.href}>Trở thành hội viên Gold</A>
+          </Button>
         </div>
         <div class="col-start-4 col-end-5 px-1">
-          <Button class="w-full">Trở thành hội viên Platinum</Button>
+          <Button class="w-full">
+            <A href={routes.registerMember.href}>Trở thành hội viên Platinum</A>
+          </Button>
         </div>
       </div>
     </div>

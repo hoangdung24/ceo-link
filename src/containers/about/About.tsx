@@ -1,3 +1,4 @@
+import { A } from "@solidjs/router";
 import { clientOnly } from "@solidjs/start";
 import { Button } from "~/components/ui/button";
 

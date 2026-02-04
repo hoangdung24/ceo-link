@@ -43,4 +43,8 @@ export const routes = {
     label: "Tổng quan",
     href: "/tong-quan",
   },
+  registerMember: {
+    label: "Đăng ký hội viên",
+    href: "/dang-ky-hoi-vien",
+  },
 };
