@@ -47,4 +47,16 @@ export const routes = {
     label: "Đăng ký hội viên",
     href: "/dang-ky-hoi-vien",
   },
+  termsOfUse: {
+    label: "Điều khoản sử dụng",
+    href: "/dieu-khoan-su-dung",
+  },
+  privacyPolicy: {
+    label: "Chính sách bảo mật",
+    href: "/chinh-sach-bao-mat",
+  },
+  operatingRegulations: {
+    label: "Quy chế hoạt động",
+    href: "/quy-che-hoat-dong",
+  },
 };

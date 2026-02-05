@@ -22,6 +22,8 @@ export default function Footer() {
 
   const infoSection = [routes.about, routes.serviceAndConnection, routes.exclusive];
 
+  const policies = [routes.termsOfUse, routes.privacyPolicy, routes.operatingRegulations];
+
   return (
     <footer class="bg-primary py-8 text-white">
       <div class="container flex flex-col gap-4">
@@ -51,12 +53,33 @@ export default function Footer() {
             </div>
 
             <div class="flex flex-col gap-y-4">
-              <p class="text-2xl font-bold">{b2bSection.title}</p>
+              <h3 class="text-2xl font-bold">{b2bSection.title}</h3>
               <ul class="flex list-inside list-disc flex-col gap-y-2">
                 {b2bSection.items.map((item) => (
                   <li>{item}</li>
                 ))}
               </ul>
+            </div>
+            <div class="flex flex-col gap-y-2">
+              Bản quyền thuộc về CEO Link © {new Date().getFullYear()}
+              <ul class="flex flex-col gap-y-1">
+                {policies.map((el) => (
+                  <li class="underline underline-offset-4">
+                    <A href={el.href}>{el.label}</A>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="flex flex-col gap-y-2">
+              <p>Số giấy chứng nhận đăng ký doanh nghiệp: 0300588569.</p>
+              <p>
+                Cấp lần đầu ngày: .../.../2026. Nơi cấp: Sở Tài chính Thành phố Hồ Chí
+                Minh
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <img src="/images/government-1.png" />
+              <img src="/images/government-2.png" />
             </div>
           </div>
           <div class="flex flex-col gap-8">

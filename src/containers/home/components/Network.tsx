@@ -1,7 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import Autoplay from "embla-carousel-autoplay";
 import { createEffect, createSignal } from "solid-js";
-import { createElementSize } from "@solid-primitives/resize-observer";
 
 import {
   Carousel,
@@ -12,18 +11,9 @@ import {
 } from "~/components/ui/carousel";
 import { Button } from "~/components/ui/button";
 
-const BadgeCheck = clientOnly(() => import("lucide-solid/icons/badge-check"));
+const CircleCheck = clientOnly(() => import("lucide-solid/icons/circle-check"));
 
 const Network = () => {
-  let [targetEl, setTargetEl] = createSignal<HTMLDivElement>();
-  const size = createElementSize(targetEl);
-
-  createEffect(() => {
-    setItemWidth((size.width ?? 0) / 2);
-  });
-
-  const [itemWidth, setItemWidth] = createSignal(-1);
-
   const [api, setApi] = createSignal<ReturnType<CarouselApi>>();
 
   const opts: CarouselProps["opts"] = {
@@ -87,7 +77,7 @@ const Network = () => {
   });
 
   return (
-    <div ref={setTargetEl} id="network" class="flex flex-col gap-8">
+    <div id="network" class="flex flex-col gap-8">
       <div class="flex max-w-[80%] flex-col gap-2 self-center">
         <h3 class="text-center text-2xl font-bold">
           Khám phá cơ hội trong mạng lưới 10.000+ lãnh đạo xác thực
@@ -98,10 +88,10 @@ const Network = () => {
       </div>
       <Carousel setApi={setApi} opts={opts} plugins={plugins} class="w-full">
         <CarouselContent>
-          {members.map((el) => {
+          {members.map((el, idx) => {
             return (
-              <CarouselItem style={{ "max-width": `${itemWidth()}px` }}>
-                <div class="border-2 border-primary p-8">
+              <CarouselItem class="max-w-[50%]">
+                <div class="select-none border-2 border-primary p-8">
                   <div class="relative flex flex-col gap-4">
                     <h6 class="font-bold">Thành viên: {el.userName}</h6>
                     <ul class="flex list-inside list-disc flex-col gap-2">
@@ -124,8 +114,12 @@ const Network = () => {
                     </div>
                     <div class="absolute right-0 top-0">
                       <div class="flex gap-4">
-                        <BadgeCheck class="text-yellow-400" size={40} />
-                        <img src="/images/logo-2.png" class="w-10" alt="Member Image" />
+                        <CircleCheck class="text-yellow-400" size={40} />
+                        <img
+                          src={`/images/logo/logo-${idx + 2}.png`}
+                          class="w-10 object-contain"
+                          alt="Member Image"
+                        />
                       </div>
                     </div>
                   </div>
