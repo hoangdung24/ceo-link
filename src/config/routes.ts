@@ -59,4 +59,8 @@ export const routes = {
     label: "Quy chế hoạt động",
     href: "/quy-che-hoat-dong",
   },
+  businessCategory: {
+    label: "Danh mục doanh nghiệp",
+    href: "/danh-muc-doanh-nghiep",
+  },
 };
