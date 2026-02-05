@@ -1,5 +1,5 @@
-import { CountUp } from "countup.js";
 import { onMount } from "solid-js";
+import { CountUp } from "countup.js";
 
 export const Guarantee = () => {
   onMount(() => {
@@ -47,7 +47,9 @@ export const Guarantee = () => {
           </p>
         </div>
         <div class="flex aspect-video items-center justify-center bg-primary">
-          <p class="text-xl font-bold">{`<${(<span id="response-time" />)} phút phản hồi đặc quyền`}</p>
+          <p class="text-xl font-bold">
+            {"<"} <span id="response-time" /> phút phản hồi đặc quyền
+          </p>
         </div>
       </div>
     </div>
