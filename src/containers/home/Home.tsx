@@ -13,12 +13,12 @@ const Home = () => {
     <main id="home" class="container flex flex-col gap-12 py-8">
       <Hero />
       <Feature />
+      <Network />
       <Identity />
       <Exclusive />
       <Guarantee />
       <Partner />
       <Quote />
-      <Network />
       <Promotion />
     </main>
   );
