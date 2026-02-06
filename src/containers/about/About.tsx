@@ -1,4 +1,3 @@
-import { A } from "@solidjs/router";
 import { clientOnly } from "@solidjs/start";
 import { Button } from "~/components/ui/button";
 
@@ -16,8 +15,9 @@ const About = () => {
           <Guarantee />,
           <Feature />,
           <Mission />,
-          <BoardOfDirectors />,
           <BoardOfAdvisors />,
+          <BoardOfDirectors />,
+          <Expert />,
           <Supplier />,
         ].map((el) => {
           return <div class="container">{el}</div>;
@@ -150,13 +150,13 @@ const BoardOfDirectors = () => {
       image: User,
       name: "Ông Bùi Thanh Giang",
       position: "Giám đốc Điều hành",
-      roles: ["..."],
+      roles: ["Cố vấn Công nghệ & Chuyển đổi số"],
     },
     {
       image: User,
-      name: "Bà Trần Lan Anh ",
+      name: "Bà Trần Lan Anh",
       position: "Giám đốc Dịch vụ Khách hàng",
-      roles: ["..."],
+      roles: ["Cố vấn Công nghệ & Chuyển đổi số"],
     },
   ];
 
@@ -178,7 +178,7 @@ const BoardOfDirectors = () => {
                 <el.image class="size-20 rounded-full bg-muted p-4" />
                 <h6 class="text-lg font-bold">{el.name}</h6>
                 <p>{el.position}</p>
-                <ul class="list-inside list-disc text-center">
+                <ul class="text-center">
                   {el.roles.map((role) => {
                     return <li>{role}</li>;
                   })}
@@ -236,7 +236,7 @@ const BoardOfAdvisors = () => {
                 <el.image class="size-20 rounded-full bg-muted p-4" />
                 <h6 class="text-lg font-bold">{el.name}</h6>
                 <p>{el.position}</p>
-                <ul class="list-inside list-disc text-center">
+                <ul class="text-center">
                   {el.roles.map((role) => {
                     return <li>{role}</li>;
                   })}
@@ -306,6 +306,66 @@ const Companion = () => {
       >
         Trở thành đối tác của chúng tôi
       </Button>
+    </div>
+  );
+};
+
+const Expert = () => {
+  const advisors = [
+    {
+      image: User,
+      name: "Ông Đỗ Quang Vinh",
+      position: "Chủ tịch HĐQT",
+      roles: ["Chuyên gia Y tế"],
+    },
+    {
+      image: User,
+      name: "Ông Diệp Dũng",
+      position: "Phó chủ tịch",
+      roles: ["Chuyên gia Tài chính - Kế toán"],
+    },
+    {
+      image: User,
+      name: "Ông Bùi Thanh Giang",
+      position: "Giám đốc Điều hành",
+      roles: ["Chuyên gia Pháp lý"],
+    },
+    {
+      image: User,
+      name: "Bà Trần Lan Anh ",
+      position: "Giám đốc Dịch vụ Khách hàng",
+      roles: ["Chuyên gia Travel & Lifestyle"],
+    },
+  ];
+  return (
+    <div class="border-2 border-primary p-12">
+      <div class="mx-auto flex max-w-[70%] flex-col gap-8">
+        <div class="flex flex-col items-center gap-2">
+          <h3 class="text-2xl font-bold">Đội ngũ chuyên gia</h3>
+          <p class="text-center">
+            Hội tụ những cá nhân ưu tú có chuyên môn sâu trong các lĩnh vực trọng yếu,
+            trực tiếp vận hành hệ thống hạ tầng đặc quyền và cung cấp các giải pháp thực
+            thi chuyên biệt, đảm bảo mọi nhu cầu của hội viên được đáp ứng với tiêu chuẩn
+            chuyên nghiệp và hiệu quả cao nhất.
+          </p>
+        </div>
+        <div class="grid w-full grid-cols-2 gap-y-8">
+          {advisors.map((el) => {
+            return (
+              <div class="flex flex-col items-center gap-1">
+                <el.image class="size-20 rounded-full bg-muted p-4" />
+                <h6 class="text-lg font-bold">{el.name}</h6>
+                <p>{el.position}</p>
+                <ul class="text-center">
+                  {el.roles.map((role) => {
+                    return <li>{role}</li>;
+                  })}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
