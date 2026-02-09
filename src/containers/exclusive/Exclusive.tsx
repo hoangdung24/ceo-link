@@ -1,7 +1,8 @@
 import { A } from "@solidjs/router";
 import { clientOnly } from "@solidjs/start";
-import { Button } from "~/components/ui/button";
+
 import { routes } from "~/config/routes";
+import { Button } from "~/components/ui/button";
 
 const CircleX = clientOnly(() => import("lucide-solid/icons/circle-x"));
 const CircleCheck = clientOnly(() => import("lucide-solid/icons/circle-check"));
@@ -31,44 +32,61 @@ const Exclusive = () => {
   ];
 
   return (
-    <main id="exclusive" class="container flex flex-col gap-12 py-12">
-      <div class="mx-auto flex max-w-[70%] flex-col items-center gap-2">
-        <h3 class="text-2xl font-bold">Vị thế của bạn, lựa chọn của bạn</h3>
-        <p class="text-center">
-          Mỗi hạng thẻ tại CEO Link không chỉ đại diện cho một danh xưng, mà là bộ công cụ
-          hỗ trợ bạn tối ưu hóa quỹ thời gian và mở rộng tầm ảnh hưởng trong một hệ sinh
-          thái kinh doanh riêng tư. Nền tảng tập trung vào việc chuyển hóa các đặc quyền
-          thành lợi thế cạnh tranh thực chất thông qua các trụ cột:
-        </p>
-      </div>
-      <div class="grid grid-cols-2 gap-8">
-        <div class="flex flex-col gap-4">
-          <img src="/images/service-1.png" class="aspect-square" />
-        </div>
-        <div class="flex flex-col gap-4">
-          {features.map((el) => {
-            return (
-              <div class="flex flex-col gap-2">
-                <h4 class="font-semibold">{el.title}</h4>
-                <p>{el.description}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    <main id="exclusive">
+      <Hero />
 
-      <FeatureList />
+      <div class="container flex flex-col gap-12 py-12">
+        <div class="grid grid-cols-2 gap-8">
+          <div class="flex flex-col gap-4">
+            <img src="/images/service-1.png" class="aspect-square" />
+          </div>
+          <div class="flex flex-col gap-4">
+            {features.map((el) => {
+              return (
+                <div class="flex flex-col gap-2">
+                  <h4 class="font-semibold">{el.title}</h4>
+                  <p>{el.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
-      <div class="mx-auto flex max-w-[70%] flex-col items-center gap-2">
-        <h3 class="text-2xl font-bold">Quyết định hôm nay, vị thế mai sau</h3>
-        <p class="text-center">
-          CEO Link được xây dựng để trở thành "điểm tựa" vững chắc, giúp nhà lãnh đạo mua
-          lại thời gian và mở khóa những cánh cửa giao thương tiềm năng nhất. Dành 2 phút
-          để lựa chọn lộ trình phù hợp và bắt đầu trải nghiệm hệ sinh thái kinh doanh
-          riêng tư của chúng tôi.
-        </p>
+        <FeatureList />
+
+        <div class="mx-auto flex max-w-[70%] flex-col items-center gap-2">
+          <h3 class="text-2xl font-bold">Quyết định hôm nay, vị thế mai sau</h3>
+          <p class="text-center">
+            CEO Link được xây dựng để trở thành "điểm tựa" vững chắc, giúp nhà lãnh đạo
+            mua lại thời gian và mở khóa những cánh cửa giao thương tiềm năng nhất. Dành 2
+            phút để lựa chọn lộ trình phù hợp và bắt đầu trải nghiệm hệ sinh thái kinh
+            doanh riêng tư của chúng tôi.
+          </p>
+        </div>
       </div>
     </main>
+  );
+};
+
+const Hero = () => {
+  return (
+    <section id="hero" class="relative h-96 overflow-hidden">
+      <div class="h-96 w-full bg-[url(/images/exclusive-banner.png)] bg-cover bg-center" />
+      <div class="absolute inset-0 bg-primary/50" />
+      <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2">
+        <div class="container">
+          <div class="mx-auto flex max-w-[70%] flex-col items-center gap-2 text-white">
+            <h3 class="text-2xl font-bold">Vị thế của bạn, lựa chọn của bạn</h3>
+            <p class="text-center">
+              Mỗi hạng thẻ tại CEO Link không chỉ đại diện cho một danh xưng, mà là bộ
+              công cụ hỗ trợ bạn tối ưu hóa quỹ thời gian và mở rộng tầm ảnh hưởng trong
+              một hệ sinh thái kinh doanh riêng tư. Nền tảng tập trung vào việc chuyển hóa
+              các đặc quyền thành lợi thế cạnh tranh thực chất thông qua các trụ cột:
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

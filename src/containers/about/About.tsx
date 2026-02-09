@@ -1,5 +1,7 @@
+import { A } from "@solidjs/router";
 import { clientOnly } from "@solidjs/start";
 import { Button } from "~/components/ui/button";
+import { routes } from "~/config/routes";
 
 const User = clientOnly(() => import("lucide-solid/icons/user"));
 const Component = clientOnly(() => import("lucide-solid/icons/component"));
@@ -304,7 +306,7 @@ const Companion = () => {
         style="--primary: 0 0% 98%; --primary-foreground: 240 5.9% 10%;"
         class="self-center px-16 uppercase"
       >
-        Trở thành đối tác của chúng tôi
+        <A href={`${routes.login.href}?tab=register`}>Trở thành đối tác của chúng tôi</A>
       </Button>
     </div>
   );

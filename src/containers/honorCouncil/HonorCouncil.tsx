@@ -8,18 +8,8 @@ const User = clientOnly(() => import("lucide-solid/icons/user"));
 const HonorCouncil = () => {
   return (
     <main id="honor-council" class="flex flex-col gap-12 py-12">
+      <Hero />
       <div class="container flex flex-col gap-12">
-        <div class="mx-auto flex max-w-[70%] flex-col items-center gap-4">
-          <h3 class="text-bold text-2xl font-bold uppercase">Hội đồng Danh dự</h3>
-          <p class="text-center">
-            Tại CEO Link, sức mạnh của mạng lưới được xây dựng từ sự cộng hưởng của những
-            tầm nhìn lớn. Hội đồng Danh dự là nơi hội tụ của các nhà hoạch định chính
-            sách, cựu chính khách và những nhà sáng lập uy tín. Bằng kinh nghiệm quản trị
-            thực tiễn và sự thấu hiểu sâu sắc về dòng chảy kinh tế, họ mang đến sự bảo
-            chứng về uy tín và điểm tựa tri thức, giúp cộng đồng lãnh đạo vững vàng bứt
-            phá trong mọi giai đoạn phát triển.
-          </p>
-        </div>
         <PolicyAdvisor />
         <Diplomat />
         <Founder />
@@ -36,12 +26,38 @@ const HonorCouncil = () => {
               class="px-12"
               style="--primary: 0 0% 98%; --primary-foreground: 240 5.9% 10%;"
             >
-              <A href={routes.login.href}>Gia nhập hệ sinh thái CEO LINK</A>
+              <A href={`${routes.login.href}?tab=register`}>
+                Gia nhập hệ sinh thái CEO LINK
+              </A>
             </Button>
           </div>
         </div>
       </div>
     </main>
+  );
+};
+
+const Hero = () => {
+  return (
+    <section id="hero" class="relative h-96 overflow-hidden">
+      <div class="h-96 w-full bg-[url(/images/honor-council-banner.png)] bg-cover bg-center" />
+      <div class="absolute inset-0 bg-primary/50" />
+      <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2">
+        <div class="container">
+          <div class="mx-auto flex max-w-[70%] flex-col items-center gap-4 text-center text-white">
+            <h3 class="text-bold text-2xl font-bold uppercase">Hội đồng Danh dự</h3>
+            <p>
+              Tại CEO Link, sức mạnh của mạng lưới được xây dựng từ sự cộng hưởng của
+              những tầm nhìn lớn. Hội đồng Danh dự là nơi hội tụ của các nhà hoạch định
+              chính sách, cựu chính khách và những nhà sáng lập uy tín. Bằng kinh nghiệm
+              quản trị thực tiễn và sự thấu hiểu sâu sắc về dòng chảy kinh tế, họ mang đến
+              sự bảo chứng về uy tín và điểm tựa tri thức, giúp cộng đồng lãnh đạo vững
+              vàng bứt phá trong mọi giai đoạn phát triển.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

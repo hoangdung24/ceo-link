@@ -26,34 +26,50 @@ const CircleCheck = clientOnly(() => import("lucide-solid/icons/circle-check"));
 
 const BusinessCategory = () => {
   return (
-    <main id="business-category" class="container flex flex-col gap-12 py-12">
-      <div class="mx-auto flex max-w-[70%] flex-col gap-4 text-center">
-        <h1 class="text-2xl font-bold uppercase">DANH MỤC DOANH NGHIỆP</h1>
-        <p>
-          Khám phá mạng lưới doanh nghiệp chất lượng cao đã qua quy trình xác thực nghiêm
-          ngặt, nơi mỗi hồ sơ không chỉ là thông tin mà là một tài sản chiến lược. CEO
-          Link kiến tạo không gian để các nhà lãnh đạo thấu hiểu năng lực của đối tác, từ
-          đó thiết lập những kết nối đúng người – đúng nhu cầu – đúng thời điểm nhằm bứt
-          phá giá trị giao thương.
-        </p>
-      </div>
-      <Filter />
-      <BusinessList />
-      <div class="self-center">
-        <Pagination
-          count={5}
-          fixedItems
-          itemComponent={(props) => (
-            <PaginationItem page={props.page}>{props.page}</PaginationItem>
-          )}
-          ellipsisComponent={() => <PaginationEllipsis />}
-        >
-          <PaginationPrevious />
-          <PaginationItems />
-          <PaginationNext />
-        </Pagination>
+    <main id="business-category">
+      <Hero />
+      <div class="container flex flex-col gap-12 py-12">
+        <Filter />
+        <BusinessList />
+        <div class="self-center">
+          <Pagination
+            count={5}
+            fixedItems
+            itemComponent={(props) => (
+              <PaginationItem page={props.page}>{props.page}</PaginationItem>
+            )}
+            ellipsisComponent={() => <PaginationEllipsis />}
+          >
+            <PaginationPrevious />
+            <PaginationItems />
+            <PaginationNext />
+          </Pagination>
+        </div>
       </div>
     </main>
+  );
+};
+
+const Hero = () => {
+  return (
+    <section id="hero" class="relative h-96 overflow-hidden">
+      <div class="h-96 w-full bg-[url(/images/business-background.png)] bg-cover bg-center" />
+      <div class="absolute inset-0 bg-primary/50" />
+      <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2">
+        <div class="container">
+          <div class="mx-auto flex max-w-[70%] flex-col gap-4 text-center text-white">
+            <h1 class="text-2xl font-bold uppercase">DANH MỤC DOANH NGHIỆP</h1>
+            <p>
+              Khám phá mạng lưới doanh nghiệp chất lượng cao đã qua quy trình xác thực
+              nghiêm ngặt, nơi mỗi hồ sơ không chỉ là thông tin mà là một tài sản chiến
+              lược. CEO Link kiến tạo không gian để các nhà lãnh đạo thấu hiểu năng lực
+              của đối tác, từ đó thiết lập những kết nối đúng người – đúng nhu cầu – đúng
+              thời điểm nhằm bứt phá giá trị giao thương.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

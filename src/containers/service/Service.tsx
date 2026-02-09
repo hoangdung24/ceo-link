@@ -179,7 +179,7 @@ const Benefit = () => {
         </div>
         <div class="px-1">
           <Button class="w-full">
-            <A href={routes.registerMember.href}>Trở thành hội viên Gold</A>
+            <A href={routes.registerMember.href}>Trở thành hội viên Platinum</A>
           </Button>
         </div>
       </div>

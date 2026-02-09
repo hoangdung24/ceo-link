@@ -9,6 +9,7 @@ import { Button } from "~/components/ui/button";
 import { createEffect, createSignal } from "solid-js";
 import Autoplay from "embla-carousel-autoplay";
 import { A } from "@solidjs/router";
+import { routes } from "~/config/routes";
 
 const Promotion = () => {
   const promotions = [
@@ -17,7 +18,7 @@ const Promotion = () => {
       description:
         "Lựa chọn hạng thẻ phù hợp để mở khóa toàn bộ khả năng tiếp cận mạng lưới doanh nghiệp và hưởng các đặc quyền ưu tiên dành riêng cho bạn.",
       leftHref: "/dang-ky-hoi-vien",
-      rightHref: "/dang-ky-hoi-vien",
+      rightHref: routes.serviceAndConnection.href,
       banner: "/images/banner-1.jpg",
     },
     {
@@ -25,7 +26,7 @@ const Promotion = () => {
       description:
         "Lựa chọn hạng thẻ phù hợp để mở khóa toàn bộ khả năng tiếp cận mạng lưới doanh nghiệp và hưởng các đặc quyền ưu tiên dành riêng cho bạn.",
       leftHref: "/dang-ky-hoi-vien",
-      rightHref: "/dang-ky-hoi-vien",
+      rightHref: routes.serviceAndConnection.href,
       banner: "/images/banner-2.jpg",
     },
   ];
