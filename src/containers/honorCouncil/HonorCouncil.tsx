@@ -7,29 +7,31 @@ const User = clientOnly(() => import("lucide-solid/icons/user"));
 
 const HonorCouncil = () => {
   return (
-    <main id="honor-council" class="flex flex-col gap-12 py-12">
+    <main id="honor-council">
       <Hero />
-      <div class="container flex flex-col gap-12">
-        <PolicyAdvisor />
-        <Diplomat />
-        <Founder />
-      </div>
-      <div class="bg-primary py-8 text-white">
-        <div class="container flex flex-col items-center gap-4">
-          <h3 class="text-2xl font-bold">Đồng hành cùng những tầm nhìn dẫn đầu</h3>
-          <p>
-            Nâng tầm mạng lưới quan hệ và khai phóng những đặc quyền dành riêng cho nhà
-            lãnh đạo dẫn đầu
-          </p>
-          <div class="pt-4">
-            <Button
-              class="px-12"
-              style="--primary: 0 0% 98%; --primary-foreground: 240 5.9% 10%;"
-            >
-              <A href={`${routes.login.href}?tab=register`}>
-                Gia nhập hệ sinh thái CEO LINK
-              </A>
-            </Button>
+      <div class="flex flex-col gap-12 py-12">
+        <div class="container flex flex-col gap-12">
+          <PolicyAdvisor />
+          <Diplomat />
+          <Founder />
+        </div>
+        <div class="bg-primary py-8 text-white">
+          <div class="container flex flex-col items-center gap-4">
+            <h3 class="text-2xl font-bold">Đồng hành cùng những tầm nhìn dẫn đầu</h3>
+            <p>
+              Nâng tầm mạng lưới quan hệ và khai phóng những đặc quyền dành riêng cho nhà
+              lãnh đạo dẫn đầu
+            </p>
+            <div class="pt-4">
+              <Button
+                class="px-12"
+                style="--primary: 0 0% 98%; --primary-foreground: 240 5.9% 10%;"
+              >
+                <A href={`${routes.login.href}?tab=register`}>
+                  Gia nhập hệ sinh thái CEO LINK
+                </A>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { A } from "@solidjs/router";
 import Autoplay from "embla-carousel-autoplay";
-import { createEffect, createSignal, Index } from "solid-js";
+import { createEffect, createMemo, createSignal, Index } from "solid-js";
 
 import { Button } from "~/components/ui/button";
 
@@ -19,9 +19,17 @@ export const Hero = () => {
     loop: true,
   };
 
-  const plugins: CarouselProps["plugins"] = [Autoplay({ delay: 3000 })];
+  const plugins: CarouselProps["plugins"] = [Autoplay({ delay: 4000 })];
 
   const items = [
+    {
+      title: "Chia sẻ vị thế - Kết nối thành công",
+      description:
+        "Biến mạng lưới quan hệ của bạn thành những đặc quyền giá trị cùng cộng đồng CEO Link",
+      banner: "/images/referral-banner.png",
+      href: routes.referral.href,
+      buttonLabel: "Khám phá chương trình Referral",
+    },
     {
       title: "YOUR NETWORK, YOUR SUCCESS",
       description:
@@ -56,12 +64,18 @@ export const Hero = () => {
     },
   ];
 
+  const [currentBanner, setCurrentBanner] = createSignal<number>(0);
+
   const [api, setApi] = createSignal<ReturnType<CarouselApi>>();
 
   createEffect(() => {
     if (!api()) {
       return;
     }
+
+    api()!.on("select", (api) => {
+      setCurrentBanner(api.selectedScrollSnap());
+    });
 
     api()!
       .containerNode()
@@ -70,19 +84,25 @@ export const Hero = () => {
       });
   });
 
-  return (
-    <section id="hero" class="grid grid-cols-2">
+  const content = createMemo(() => {
+    const currentItem = currentBanner();
+
+    const { buttonLabel, description, href, title } = items[currentItem];
+
+    return (
       <div class="flex flex-col justify-center gap-4 p-8">
-        <h3 class="text-4xl font-semibold">YOUR NETWORK, YOUR SUCCESS</h3>
-        <p class="text-lg">
-          CEO Link là nền tảng kết nối, xúc tiến và hợp tác chuyên sâu dành cho lãnh đạo
-          doanh nghiệp, giúp kết nối đúng người, đúng nhu cầu và đúng thời điểm ngay trong
-          một hệ sinh thái kinh doanh riêng tư
-        </p>
+        <h3 class="text-4xl font-bold uppercase">{title}</h3>
+        <p class="text-lg">{description}</p>
         <Button class="self-start">
-          <A href={routes.exclusive.href}>Khám phá đặc quyền</A>
+          <A href={href}>{buttonLabel}</A>
         </Button>
       </div>
+    );
+  });
+
+  return (
+    <section id="hero" class="grid grid-cols-2">
+      {content()}
       <Carousel setApi={setApi} opts={opts} plugins={plugins}>
         <CarouselContent>
           <Index each={items}>

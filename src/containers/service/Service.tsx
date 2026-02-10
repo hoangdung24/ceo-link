@@ -11,7 +11,7 @@ const AlarmClockCheck = clientOnly(() => import("lucide-solid/icons/alarm-clock-
 
 const Service = () => {
   return (
-    <main id="service" class="flex flex-col gap-12 py-12">
+    <main id="service" class="flex flex-col gap-12 pb-12">
       <Introduction />
       <div class="container flex flex-col gap-12">
         <Benefit />

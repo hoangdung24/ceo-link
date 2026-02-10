@@ -63,4 +63,20 @@ export const routes = {
     label: "Danh mục doanh nghiệp",
     href: "/danh-muc-doanh-nghiep",
   },
+  referral: {
+    label: "Giới thiệu",
+    href: "/gioi-thieu",
+  },
+  benefit: {
+    label: "Quyền lợi",
+    href: "/quyen-loi",
+  },
+  referralDashboard: {
+    label: "Quản lý hội viên",
+    href: "/hoi-vien-gioi-thieu",
+  },
+  referralTerms: {
+    label: "Điều khoản giới thiệu",
+    href: "/dieu-khoan-gioi-thieu",
+  },
 };

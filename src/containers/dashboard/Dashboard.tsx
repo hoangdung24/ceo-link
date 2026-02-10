@@ -1,5 +1,6 @@
 import { A } from "@solidjs/router";
 import { clientOnly } from "@solidjs/start";
+import ReferralBanner from "~/components/Referral";
 import { Button } from "~/components/ui/button";
 import { ChartData, PieChart } from "~/components/ui/charts";
 import { Progress } from "~/components/ui/progress";
@@ -10,11 +11,15 @@ const CircleCheck = clientOnly(() => import("lucide-solid/icons/circle-check"));
 
 const Dashboard = () => {
   return (
-    <main id="dashboard" class="container flex flex-col gap-12 py-12">
-      <UserStatus />
-      <ControlPanel />
-      <CollaborationStatus />
-      <PotentialPartner />
+    <main id="dashboard">
+      <ReferralBanner />
+
+      <div class="container flex flex-col gap-12 py-12">
+        <UserStatus />
+        <ControlPanel />
+        <CollaborationStatus />
+        <PotentialPartner />
+      </div>
     </main>
   );
 };
